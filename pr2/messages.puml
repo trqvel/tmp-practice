@@ -1,0 +1,15 @@
+@startuml
+actor User1
+actor User2
+participant "Client App (User1)" as Client1
+participant "Server" as Server
+participant "Client App (User2)" as Client2
+participant "Message" as Message
+
+User1 -> Client1: typeMessage()
+Client1 -> Server: sendMessage(content)
+Server -> Message: create(content, sender, receiver)
+Message -> Server: save()
+Server -> Client2: deliverMessage(content)
+Client2 -> User2: displayMessage(content)
+@enduml

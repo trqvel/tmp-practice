@@ -1,0 +1,16 @@
+@startuml
+node "User Device" {
+    [Client App]
+}
+
+node "Application Server" {
+    [Server]
+}
+
+node "Database Server" {
+    [Database]
+}
+
+[Client App] --> [Server] : HTTP Requests
+[Server] --> [Database] : SQL Queries
+@enduml

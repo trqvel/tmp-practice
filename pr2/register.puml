@@ -1,0 +1,15 @@
+@startuml
+actor User
+participant "Client App" as Client
+participant "Server" as Server
+participant "Database" as DB
+
+User -> Client: openRegistrationForm()
+Client -> User: displayForm()
+User -> Client: submitRegistrationForm()
+Client -> Server: registerUser(data)
+Server -> DB: saveUser(data)
+DB -> Server: confirmRegistration()
+Server -> Client: registrationSuccess()
+Client -> User: registrationComplete()
+@enduml

@@ -1,0 +1,10 @@
+@startuml
+actor User
+participant "Client App" as Client
+participant "Server" as Server
+
+User -> Client: enterCredentials()
+Client -> Server: authenticateUser(username, password)
+Server -> Client: authenticationSuccess()
+Client -> User: connectionSuccessful()
+@enduml
