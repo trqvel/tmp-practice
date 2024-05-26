@@ -1,0 +1,35 @@
+@startuml
+package MessagingSystem {
+    class User {
+        + String username
+        + String password
+        + connect()
+        + disconnect()
+        + sendMessage()
+        + receiveMessage()
+    }
+
+    class Message {
+        + String content
+        + Date timestamp
+        + User sender
+        + User receiver
+    }
+
+    class Server {
+        + users: List<User>
+        + messages: List<Message>
+        + registerUser(user: User)
+        + unregisterUser(user: User)
+    }
+
+    class AdminSystem {
+        + registerUser(user: User)
+        + unregisterUser(user: User)
+    }
+
+    User "1" *-- "0..*" Message
+    User --> Server
+    AdminSystem --|> Server
+}
+@enduml

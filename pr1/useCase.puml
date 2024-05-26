@@ -1,0 +1,15 @@
+@startuml
+actor User
+actor AdminSystem
+
+User --> (Register)
+User --> (Unregister)
+User --> (Connect)
+User --> (Disconnect)
+User --> (Send Message)
+User --> (Receive Message)
+
+AdminSystem --> (Register)
+AdminSystem --> (Unregister)
+
+@enduml
